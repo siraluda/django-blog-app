@@ -25,10 +25,10 @@
         <div class="post-preview">
           <a href="{% url 'blog:post-view' post_item.id %}">
             <h2 class="post-title">
-              {{ post_item.title }}
+              {{ post_item.title|safe }}
             </h2>
             <h3 class="post-subtitle">
-              {{ post_item.body|truncatewords:30 }}
+              {{ post_item.body|truncatewords:30|safe }}
             </h3>
           </a>
           <p class="post-meta">Posted by

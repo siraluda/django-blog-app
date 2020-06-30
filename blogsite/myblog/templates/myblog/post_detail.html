@@ -8,8 +8,8 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="post-heading">
-            <h1>{{object.title}}</h1>
-            <h2 class="subheading">{{object.body|truncatewords:10}}</h2>
+            <h1>{{object.title|safe}}</h1>
+            <h2 class="subheading">{{object.body|truncatewords:10|safe}}</h2>
             <span class="meta">Posted by
               <a href="{% url 'blog:author-posts-view' object.author.username %}">{{object.author.first_name}}</a>
               on {{object.date_published|date:'F d, Y'}}</span>
@@ -24,7 +24,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
-          <p>{{object.body}}</p>
+          <p>{{object.body|safe}}</p>
         </div>
         <div>
           {% if object.author == user %}

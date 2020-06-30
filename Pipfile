@@ -9,6 +9,7 @@ verify_ssl = true
 django = "*"
 pillow = "*"
 django-crispy-forms = "*"
+django-summernote = "*"
 
 [requires]
 python_version = "3.7"
