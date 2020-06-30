@@ -1,0 +1,50 @@
+{% extends 'myblog/base.html' %}
+{% block content %}
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('../../static/myblog/img/contact-bg.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>Clean Siraluda Blog</h1>
+            <span class="subheading"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        {% if post_list %}
+        {% for post_item in post_list %}
+        <div class="post-preview">
+          <a href="{% url 'blog:post-view' post_item.id %}">
+            <h2 class="post-title">
+              {{ post_item.title }}
+            </h2>
+            <h3 class="post-subtitle">
+              {{ post_item.body|truncatewords:30 }}
+            </h3>
+          </a>
+          <p class="post-meta">Posted by
+            <a href="#">{{ post_item.author.first_name }}</a>
+            on {{ post_item.date_published|date:'F d, Y'}}</p>
+        </div>
+        <hr>
+        {% endfor %}
+        {% endif %}
+        <!-- Pager -->
+        <div class="clearfix">
+          <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% endblock content %}
+

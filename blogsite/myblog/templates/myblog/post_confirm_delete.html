@@ -1,0 +1,38 @@
+{% extends 'myblog/base.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('../../static/myblog/img/login.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="page-heading">
+            <h1>Delete Post?</h1>
+            <span class="subheading">Have questions? I have answers.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+          <!--Form-->
+        <form name="sentMessage" id="contactForm" novalidate method="POST">
+          <fieldset class="form-group">
+          {% csrf_token %}
+          <h2>Are you sure you want to delete post "{{object.title}}"</h2>
+          </fieldset>
+          <br>
+          <div id="success"></div>
+          <button type="submit" class="btn btn-outline-danger" id="sendMessageButton">Yes, Delete</button>
+          <a href="{% url 'blog:post-view' object.id %}" class="btn btn-outline-secondary" id="sendMessageButton">Cancel</a>
+        </form>
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}

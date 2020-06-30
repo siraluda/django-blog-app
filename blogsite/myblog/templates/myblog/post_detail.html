@@ -1,0 +1,41 @@
+
+{% extends 'myblog/base.html' %}
+{% block content %}
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('{{object.image.url}}')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1>{{object.title}}</h1>
+            <h2 class="subheading">{{object.body|truncatewords:10}}</h2>
+            <span class="meta">Posted by
+              <a href="{% url 'blog:author-posts-view' object.author.username %}">{{object.author.first_name}}</a>
+              on {{object.date_published|date:'F d, Y'}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Post Content -->
+  <article>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <p>{{object.body}}</p>
+        </div>
+        <div>
+          {% if object.author == user %}
+          <a href="{% url 'blog:update-post-view' object.id %}" class="btn btn-outline-secondary btn-sm mt-1 mb-1" id="sendMessageButton">Update</a>
+          <a href="{% url 'blog:delete-post-view' object.id %}" class="btn btn-outline-danger btn-sm mt-1 mb-1" id="sendMessageButton">Delete</a>
+          {%endif%}
+        </div>
+      </div>
+    </div>
+  </article>
+  
+{% endblock content %}
+
+ 
