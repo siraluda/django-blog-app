@@ -10,6 +10,7 @@ django = "*"
 pillow = "*"
 django-crispy-forms = "*"
 django-summernote = "*"
+coverage = "*"
 
 [requires]
 python_version = "3.7"

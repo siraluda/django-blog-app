@@ -18,6 +18,7 @@ Class based views look for templates with the format:
 class HomePageView(ListView):
     template_name = 'myblog/index.html' 
     context_object_name = 'post_list'
+    paginate_by = 5
 
     def get_queryset(self):
         return Post.objects.filter(date_published__lte=timezone.now()).order_by('-date_published')[:10]
@@ -27,6 +28,7 @@ class PostView(DetailView):
 
 class AuthorPostsView(ListView):
     context_object_name = 'post_list'
+    paginate_by = 5
 
     def get_queryset(self):
         user = get_object_or_404(User, username=self.kwargs.get('username'))
