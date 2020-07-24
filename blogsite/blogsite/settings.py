@@ -25,7 +25,7 @@ SECRET_KEY = os.environ.get('BLOG_APP_SECRET_KEY', 'blogsite.settings')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [os.environ.get('LINODE_SERVER_IP', 'blogsite.settings'), '*']
+ALLOWED_HOSTS = ['*', os.environ.get('LINODE_SERVER_IP', 'blogsite.settings'),]
 
 
 # Application definition
@@ -136,7 +136,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
