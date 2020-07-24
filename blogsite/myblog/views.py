@@ -52,7 +52,7 @@ class CreatePostView(LoginRequiredMixin, CreateView):
 
 class UpdatePostView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
-    template_name = 'myblog/postform.html'
+    template_name = 'myblog/post_form.html'
     fields = ['title', 'body', 'image']
 
     def form_valid(self, form):
