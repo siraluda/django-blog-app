@@ -25,7 +25,7 @@ SECRET_KEY = os.environ.get('BLOG_APP_SECRET_KEY', 'blogsite.settings')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [os.environ.get('LINODE_SERVER_IP'),]
+ALLOWED_HOSTS = [os.environ.get('LINODE_SERVER_IP', 'blogsite.settings'),]
 
 
 # Application definition
@@ -153,8 +153,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER','blogsite.settings')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS', 'blogsite.settings')
 
 # SUMMERNOTE 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
