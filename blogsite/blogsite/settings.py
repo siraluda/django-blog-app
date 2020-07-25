@@ -29,6 +29,7 @@ ALLOWED_HOSTS = ['*',
     os.environ.get('LINODE_SERVER_IP', 'blogsite.settings'),
     ]
 
+# settings update
 
 # Application definition
 
