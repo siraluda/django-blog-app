@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get('BLOG_APP_SECRET_KEY', 'blogsite.settings')
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    os.environ.get('LINODE_SERVER_IP'),
+    os.environ.get('LINODE_SERVER_IP', 'blogsite.settings'),
     ]
 
 
